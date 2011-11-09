@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://perfilador.dsie.gsa.telcel.com" xmlns:intf="http://perfilador.dsie.gsa.telcel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://perfilador.dsie.gsa.telcel.com">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://perfilador.dsie.gsa.telcel.com">
+   <element name="obtenerPerfil">
+    <complexType>
+     <sequence>
+      <element name="telefono" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenerPerfilResponse">
+    <complexType>
+     <sequence>
+      <element name="obtenerPerfilReturn" type="impl:PerfiladorDTO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="PerfiladorDTO">
+    <sequence>
+     <element name="apellidos" nillable="true" type="xsd:string"/>
+     <element name="codigoRespuesta" type="xsd:int"/>
+     <element name="cuenta" nillable="true" type="xsd:string"/>
+     <element name="esConsolidada" type="xsd:boolean"/>
+     <element name="esTelcel" type="xsd:boolean"/>
+     <element name="longiNip" type="xsd:int"/>
+     <element name="nip" nillable="true" type="xsd:string"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+     <element name="nombrePlan" nillable="true" type="xsd:string"/>
+     <element name="perfil" nillable="true" type="xsd:string"/>
+     <element name="plan" nillable="true" type="xsd:string"/>
+     <element name="plataforma" nillable="true" type="xsd:string"/>
+     <element name="region" nillable="true" type="xsd:string"/>
+     <element name="statusNip" type="xsd:int"/>
+     <element name="statusPass" type="xsd:int"/>
+     <element name="suspendida" type="xsd:boolean"/>
+     <element name="tecnologia" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="isLineaRegistroAnterior">
+    <complexType>
+     <sequence>
+      <element name="telefono" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isLineaRegistroAnteriorResponse">
+    <complexType>
+     <sequence>
+      <element name="isLineaRegistroAnteriorReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validAcceso">
+    <complexType>
+     <sequence>
+      <element name="telefono" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validAccesoResponse">
+    <complexType>
+     <sequence>
+      <element name="validAccesoReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+   <wsdl:message name="obtenerPerfilResponse">
+      <wsdl:part element="impl:obtenerPerfilResponse" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="isLineaRegistroAnteriorRequest">
+      <wsdl:part element="impl:isLineaRegistroAnterior" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="validAccesoRequest">
+      <wsdl:part element="impl:validAcceso" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="obtenerPerfilRequest">
+      <wsdl:part element="impl:obtenerPerfil" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="validAccesoResponse">
+      <wsdl:part element="impl:validAccesoResponse" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="isLineaRegistroAnteriorResponse">
+      <wsdl:part element="impl:isLineaRegistroAnteriorResponse" name="parameters"/>
+   </wsdl:message>
+   <wsdl:portType name="Perfilador">
+      <wsdl:operation name="obtenerPerfil">
+         <wsdl:input message="impl:obtenerPerfilRequest" name="obtenerPerfilRequest"/>
+         <wsdl:output message="impl:obtenerPerfilResponse" name="obtenerPerfilResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="isLineaRegistroAnterior">
+         <wsdl:input message="impl:isLineaRegistroAnteriorRequest" name="isLineaRegistroAnteriorRequest"/>
+         <wsdl:output message="impl:isLineaRegistroAnteriorResponse" name="isLineaRegistroAnteriorResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="validAcceso">
+         <wsdl:input message="impl:validAccesoRequest" name="validAccesoRequest"/>
+         <wsdl:output message="impl:validAccesoResponse" name="validAccesoResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="PerfiladorSoapBinding" type="impl:Perfilador">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="obtenerPerfil">
+         <wsdlsoap:operation soapAction=""/>
+         <wsdl:input name="obtenerPerfilRequest">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="obtenerPerfilResponse">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="isLineaRegistroAnterior">
+         <wsdlsoap:operation soapAction=""/>
+         <wsdl:input name="isLineaRegistroAnteriorRequest">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="isLineaRegistroAnteriorResponse">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="validAcceso">
+         <wsdlsoap:operation soapAction=""/>
+         <wsdl:input name="validAccesoRequest">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="validAccesoResponse">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="PerfiladorService">
+      <wsdl:port binding="impl:PerfiladorSoapBinding" name="Perfilador">
+         <wsdlsoap:address location="http://mitelcelab.itelcel.com:7001/PerfiladorServices/services/Perfilador"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
